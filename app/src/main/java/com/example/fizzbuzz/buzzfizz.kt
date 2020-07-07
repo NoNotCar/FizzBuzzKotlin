@@ -26,14 +26,8 @@ fun main(){
             fbz= mutableListOf("Bong")
         }
         if (n%13==0){
-            var firstb=0
-            for ((i,fb) in fbz.withIndex()){
-                if (fb[0]=='B'){
-                    firstb=i
-                    break
-                }
-            }
-            fbz.add(firstb,"Fezz")
+            val idx=fbz.indexOfFirst { it[0]=='B' }
+            fbz.add(if (idx>0) idx else 0,"Fezz")
         }
         if (n%17==0){
             fbz=fbz.asReversed()
