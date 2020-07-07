@@ -1,7 +1,17 @@
 package com.example.fizzbuzz
 
 fun main(){
-    for (n in 1..255){
+    println("How far do you want to go?")
+    var max:Int
+    while (true){
+        try{
+            max= readLine()?.toInt()?:100
+            break
+        }catch(e:NumberFormatException){
+            println("That's not a number!")
+        }
+    }
+    for (n in 1..max){
         var fbz= mutableListOf<String>()
         if (n%3==0){
             fbz.add("Fizz")
@@ -29,10 +39,9 @@ fun main(){
             fbz=fbz.asReversed()
         }
         if (fbz.isEmpty()) {
-            print(n.toString())
+            println(n.toString())
         }else{
-            print(fbz.joinToString(""))
+            println(fbz.joinToString(""))
         }
-        print("\n")
     }
 }
